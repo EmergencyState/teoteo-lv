@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="lv">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Teo, franču buldogs</title>
+<meta name="description" content="Teo ir franču buldogs, dzimis 2024. gada 11. maijā.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E🐶%3C/text%3E%3C/svg%3E">
+<style>
+:root{--ball:#dff35a;--ink:#1d1a17;--paper:#f7f5ee;--text:#1d1a17;--mute:#6b645b;--line:#d9d4c7;--fawn:#cf9a63;--snout:#3a2f28;--ear:#e9a3a0;color-scheme:light}
+@media(prefers-color-scheme:dark){:root{--paper:#171513;--text:#f3efe6;--mute:#a79f92;--line:#35302a;color-scheme:dark}}
+*{box-sizing:border-box;margin:0}
+body{background:var(--paper);color:var(--text);font:1.06rem/1.65 "Avenir Next",ui-rounded,system-ui,-apple-system,"Segoe UI",sans-serif}
+.hero{background:var(--ball);color:var(--ink);overflow:hidden}
+.hero-in{max-width:1040px;margin:0 auto;padding:2.5rem 1.5rem 0;display:grid;grid-template-columns:1.1fr 1fr;align-items:end;gap:1rem}
+h1{font:900 clamp(6rem,22vw,15rem)/.8 "Avenir Next","Arial Rounded MT Bold",ui-rounded,system-ui,sans-serif;letter-spacing:-.06em;margin-left:-.04em}
+.hero-text{padding-bottom:3rem}
+.breed{font-weight:700;font-size:1.25rem;margin-top:1.5rem}
+#age{font-size:1.05rem;margin-top:.25rem}
+.pic{align-self:end;display:flex;justify-content:center}
+.pic svg,.pic img{width:min(100%,430px);height:auto;display:block}
+.pic img{border-radius:50% 50% 0 0;aspect-ratio:1;object-fit:cover}
+main{max-width:1040px;margin:0 auto;padding:0 1.5rem}
+section{padding:4rem 0 0}
+h2{font:800 1.9rem/1.2 "Avenir Next",ui-rounded,system-ui,sans-serif;letter-spacing:-.02em;margin-bottom:1.5rem}
+.stats{display:grid;grid-template-columns:repeat(3,1fr)}
+.stat{padding:0 1.5rem;border-left:2px solid var(--line)}
+.stat:first-child{padding-left:0;border-left:0}
+.stat b{display:block;font:900 clamp(2.4rem,7vw,4.5rem)/1 ui-rounded,system-ui,sans-serif;letter-spacing:-.04em}
+.stat span{color:var(--mute);font-size:.95rem}
+dl{max-width:62ch}
+dt{font-weight:800;margin-top:1.6rem}
+dd{color:var(--mute)}
+.gallery{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:.75rem}
+.gallery img{width:100%;aspect-ratio:1;object-fit:cover;border-radius:1rem}
+footer{max-width:1040px;margin:5rem auto 0;padding:1.5rem;border-top:2px solid var(--line);color:var(--mute);font-size:.9rem}
+.ear{transform-origin:50% 90%;animation:wiggle 1.2s ease-in-out .6s 2}
+.ear.r{animation-name:wiggle-r}
+@keyframes wiggle{50%{transform:rotate(-7deg)}}
+@keyframes wiggle-r{50%{transform:rotate(7deg)}}
+@media(max-width:720px){.hero-in{grid-template-columns:1fr}.hero-text{padding-bottom:1rem}.pic{order:-1;margin-top:-.5rem}.stats{grid-template-columns:1fr}.stat,.stat:first-child{padding:1rem 0;border-left:0;border-top:2px solid var(--line)}.stat:first-child{border-top:0}}
+@media(prefers-reduced-motion:reduce){.ear{animation:none}}
+</style>
+</head>
+<body>
+<header class="hero"><div class="hero-in">
+  <div class="hero-text">
+    <h1>Teo</h1>
+    <p class="breed">Franču buldogs</p>
+    <p id="age">Dzimis 2024. gada 11. maijā</p>
+  </div>
+  <div class="pic" id="pic">
+    <!-- Kad pievienosi foto site/teo.jpg, tas automātiski aizstās šo zīmējumu -->
+    <svg viewBox="0 0 200 200" role="img" aria-label="Franču buldoga Teo zīmējums">
+      <g class="ear"><path d="M42 98C14 28 40 6 66 24c16 12 16 44 14 70z" fill="var(--snout)"/><path d="M48 88C32 40 46 28 60 36c8 8 8 30 8 52z" fill="var(--ear)"/></g>
+      <g class="ear r"><path d="M158 98c28-70 2-92-24-74-16 12-16 44-14 70z" fill="var(--snout)"/><path d="M152 88c16-48 2-60-12-52-8 8-8 30-8 52z" fill="var(--ear)"/></g>
+      <ellipse cx="100" cy="125" rx="70" ry="68" fill="var(--fawn)"/>
+      <path d="M78 86q22-9 44 0" fill="none" stroke="var(--snout)" stroke-width="3" stroke-linecap="round" opacity=".5"/>
+      <ellipse cx="100" cy="150" rx="38" ry="28" fill="var(--snout)"/>
+      <circle cx="72" cy="114" r="9" fill="#1d1a17"/><circle cx="128" cy="114" r="9" fill="#1d1a17"/>
+      <circle cx="75" cy="111" r="2.8" fill="#fff"/><circle cx="131" cy="111" r="2.8" fill="#fff"/>
+      <ellipse cx="100" cy="138" rx="13" ry="9" fill="#0d0b0a"/>
+      <path d="M100 147v9M100 156q-9 8-18 0M100 156q9 8 18 0" fill="none" stroke="#0d0b0a" stroke-width="3" stroke-linecap="round"/>
+    </svg>
+  </div>
+</div></header>
+
+<main>
+  <section>
+    <h2>Teo skaitļos</h2>
+    <div class="stats">
+      <div class="stat"><b id="days">…</b><span>dienas kopš dzimšanas</span></div>
+      <div class="stat"><b id="weeks">…</b><span>nedēļas ar šņākšanu un krāktšanu</span></div>
+      <div class="stat"><b id="bday">…</b><span id="bdayl">līdz nākamajai dzimšanas dienai</span></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Iepazīsties</h2>
+    <!-- Nomaini tekstus uz saviem faktiem par Teo -->
+    <dl>
+      <dt>Šķirne</dt>
+      <dd>Franču buldogs: sikspārņa ausis, saburzīts purns un raksturs, kas ir lielāks par pašu suni.</dd>
+      <dt>Zvaigznājs</dt>
+      <dd>Vērsis. Dzimis 11. maijā, tāpēc stūrgalvība ir ierakstīta zvaigznēs.</dd>
+      <dt>Mīļākās lietas</dt>
+      <dd>Ieraksti šeit, ko Teo mīl visvairāk: ēdienu, rotaļlietu, vietu uz dīvāna.</dd>
+    </dl>
+  </section>
+
+  <section id="gal" hidden>
+    <h2>Foto</h2>
+    <div class="gallery" id="photos"></div>
+  </section>
+</main>
+
+<footer>teoteo.lv, uzbūvēts mājās un darbojas uz paša servera.</footer>
+
+<script>
+const born = new Date(2024, 4, 11), now = new Date(), today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+const pl = (n, one, many) => n + ' ' + (n % 10 === 1 && n % 100 !== 11 ? one : many);
+let y = today.getFullYear() - 2024, m = today.getMonth() - 4, d = today.getDate() - 11;
+if (d < 0) { m--; d += new Date(today.getFullYear(), today.getMonth(), 0).getDate(); }
+if (m < 0) { y--; m += 12; }
+document.getElementById('age').textContent = 'Dzimis 2024. gada 11. maijā, tātad šodien Teo ir ' +
+  [y && pl(y, 'gads', 'gadi'), m && pl(m, 'mēnesis', 'mēneši'), d && pl(d, 'diena', 'dienas')].filter(Boolean).join(', ') + ' vecs.';
+const days = Math.round((today - born) / 864e5), fmt = n => n.toLocaleString('lv-LV');
+document.getElementById('days').textContent = fmt(days);
+document.getElementById('weeks').textContent = fmt(Math.floor(days / 7));
+let next = new Date(today.getFullYear(), 4, 11);
+if (next < today) next.setFullYear(next.getFullYear() + 1);
+const left = Math.round((next - today) / 864e5);
+document.getElementById('bday').textContent = left === 0 ? 'Šodien!' : fmt(left);
+document.getElementById('bdayl').textContent = left === 0 ? 'Teo svin ' + (next.getFullYear() - 2024) + '. dzimšanas dienu' : 'dienas līdz ' + (next.getFullYear() - 2024) + '. dzimšanas dienai';
+
+// Galvenais foto: ieliec site/teo.jpg
+const im = new Image(); im.alt = 'Teo'; im.onload = () => document.getElementById('pic').replaceChildren(im); im.src = 'teo.jpg';
+// Galerija: ieraksti failu nosaukumus, piem. ['foto1.jpg', 'foto2.jpg']
+const photos = [];
+if (photos.length) { document.getElementById('gal').hidden = false; document.getElementById('photos').replaceChildren(...photos.map(f => Object.assign(new Image(), { src: f, alt: 'Teo', loading: 'lazy' }))); }
+</script>
+</body>
+</html>
