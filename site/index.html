@@ -7,117 +7,1216 @@
 <meta name="description" content="Teo ir franču buldogs, dzimis 2024. gada 11. maijā.">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E🐶%3C/text%3E%3C/svg%3E">
 <style>
-:root{--ball:#dff35a;--ink:#1d1a17;--paper:#f7f5ee;--text:#1d1a17;--mute:#6b645b;--line:#d9d4c7;--fawn:#cf9a63;--snout:#3a2f28;--ear:#e9a3a0;color-scheme:light}
-@media(prefers-color-scheme:dark){:root{--paper:#171513;--text:#f3efe6;--mute:#a79f92;--line:#35302a;color-scheme:dark}}
-*{box-sizing:border-box;margin:0}
-body{background:var(--paper);color:var(--text);font:1.06rem/1.65 "Avenir Next",ui-rounded,system-ui,-apple-system,"Segoe UI",sans-serif}
-.hero{background:var(--ball);color:var(--ink);overflow:hidden}
-.hero-in{max-width:1040px;margin:0 auto;padding:2.5rem 1.5rem 0;display:grid;grid-template-columns:1.1fr 1fr;align-items:end;gap:1rem}
-h1{font:900 clamp(6rem,22vw,15rem)/.8 "Avenir Next","Arial Rounded MT Bold",ui-rounded,system-ui,sans-serif;letter-spacing:-.06em;margin-left:-.04em}
-.hero-text{padding-bottom:3rem}
-.breed{font-weight:700;font-size:1.25rem;margin-top:1.5rem}
-#age{font-size:1.05rem;margin-top:.25rem}
-.pic{align-self:end;display:flex;justify-content:center}
-.pic svg,.pic img{width:min(100%,430px);height:auto;display:block}
-.pic img{border-radius:50% 50% 0 0;aspect-ratio:1;object-fit:cover}
-main{max-width:1040px;margin:0 auto;padding:0 1.5rem}
-section{padding:4rem 0 0}
-h2{font:800 1.9rem/1.2 "Avenir Next",ui-rounded,system-ui,sans-serif;letter-spacing:-.02em;margin-bottom:1.5rem}
-.stats{display:grid;grid-template-columns:repeat(3,1fr)}
-.stat{padding:0 1.5rem;border-left:2px solid var(--line)}
-.stat:first-child{padding-left:0;border-left:0}
-.stat b{display:block;font:900 clamp(2.4rem,7vw,4.5rem)/1 ui-rounded,system-ui,sans-serif;letter-spacing:-.04em}
-.stat span{color:var(--mute);font-size:.95rem}
-dl{max-width:62ch}
-dt{font-weight:800;margin-top:1.6rem}
-dd{color:var(--mute)}
-.gallery{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:.75rem}
-.gallery img{width:100%;aspect-ratio:1;object-fit:cover;border-radius:1rem}
-footer{max-width:1040px;margin:5rem auto 0;padding:1.5rem;border-top:2px solid var(--line);color:var(--mute);font-size:.9rem}
-.ear{transform-origin:50% 90%;animation:wiggle 1.2s ease-in-out .6s 2}
-.ear.r{animation-name:wiggle-r}
-@keyframes wiggle{50%{transform:rotate(-7deg)}}
-@keyframes wiggle-r{50%{transform:rotate(7deg)}}
-@media(max-width:720px){.hero-in{grid-template-columns:1fr}.hero-text{padding-bottom:1rem}.pic{order:-1;margin-top:-.5rem}.stats{grid-template-columns:1fr}.stat,.stat:first-child{padding:1rem 0;border-left:0;border-top:2px solid var(--line)}.stat:first-child{border-top:0}}
-@media(prefers-reduced-motion:reduce){.ear{animation:none}}
+  :root {
+    --ball: #dff35a;
+    --ink: #1d1a17;
+    --paper: #f7f5ee;
+    --text: #1d1a17;
+    --mute: #6b645b;
+    --line: #d9d4c7;
+    --fawn: #cf9a63;
+    --snout: #3a2f28;
+    --ear: #e9a3a0;
+    --tongue: #f27983;
+    --card: #efece2;
+    color-scheme: light;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --paper: #171513;
+      --text: #f3efe6;
+      --mute: #a79f92;
+      --line: #35302a;
+      --card: #211e1b;
+      color-scheme: dark;
+    }
+  }
+
+  [data-theme="dark"] {
+    --paper: #171513;
+    --text: #f3efe6;
+    --mute: #a79f92;
+    --line: #35302a;
+    --card: #211e1b;
+    color-scheme: dark;
+  }
+
+  * {
+    box-sizing: border-box;
+    margin: 0;
+  }
+
+  body {
+    background: var(--paper);
+    color: var(--text);
+    font: 1.06rem/1.65 "Avenir Next", ui-rounded, system-ui, -apple-system, "Segoe UI", sans-serif;
+    transition: background-color 0.25s ease, color 0.25s ease;
+    overflow-x: hidden;
+  }
+
+  /* Hero sadaļa sākotnējā estētikā */
+  .hero {
+    background: var(--ball);
+    color: var(--ink);
+    overflow: hidden;
+  }
+
+  .hero-in {
+    max-width: 1040px;
+    margin: 0 auto;
+    padding: 2.5rem 1.5rem 0;
+    display: grid;
+    grid-template-columns: 1.15fr 0.95fr;
+    align-items: end;
+    gap: 1.5rem;
+  }
+
+  h1 {
+    font: 900 clamp(6rem, 22vw, 15rem)/0.8 "Avenir Next", "Arial Rounded MT Bold", ui-rounded, system-ui, sans-serif;
+    letter-spacing: -0.06em;
+    margin-left: -0.04em;
+    user-select: none;
+  }
+
+  .hero-text {
+    padding-bottom: 2.75rem;
+  }
+
+  .breed {
+    font-weight: 800;
+    font-size: 1.25rem;
+    margin-top: 1.4rem;
+  }
+
+  .born-date {
+    color: rgba(29, 26, 23, 0.75);
+    font-size: 0.98rem;
+    margin-top: 0.15rem;
+  }
+
+  /* Dzīvais vecuma bloks */
+  .age-box {
+    margin-top: 1.15rem;
+    padding-top: 1.15rem;
+    border-top: 2px solid rgba(29, 26, 23, 0.14);
+  }
+
+  .age-value {
+    font: 900 clamp(1.4rem, 3.2vw, 2rem)/1.2 ui-rounded, system-ui, sans-serif;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+  }
+
+  .age-sub {
+    font-size: 0.92rem;
+    color: rgba(29, 26, 23, 0.75);
+    margin-top: 0.25rem;
+  }
+
+  .age-live {
+    font-size: 0.84rem;
+    font-variant-numeric: tabular-nums;
+    color: rgba(29, 26, 23, 0.65);
+    margin-top: 0.15rem;
+  }
+
+  .age-pills {
+    display: inline-flex;
+    flex-wrap: wrap;
+    gap: 0.35rem;
+    margin-top: 0.85rem;
+  }
+
+  .pill-btn {
+    background: rgba(29, 26, 23, 0.08);
+    color: var(--ink);
+    border: 1.5px solid transparent;
+    border-radius: 999px;
+    padding: 0.35rem 0.8rem;
+    font: 700 0.82rem/1 inherit;
+    cursor: pointer;
+    transition: background-color 0.15s ease, transform 0.15s ease;
+  }
+
+  .pill-btn:hover {
+    background: rgba(29, 26, 23, 0.15);
+  }
+
+  .pill-btn.active {
+    background: var(--ink);
+    color: var(--ball);
+  }
+
+  /* Interaktīvā Teo ilustrācija un domu burbulis */
+  .pic-area {
+    align-self: end;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .bubble {
+    background: #ffffff;
+    color: var(--ink);
+    font-weight: 700;
+    font-size: 0.92rem;
+    padding: 0.55rem 1rem;
+    border-radius: 999px;
+    box-shadow: 0 8px 20px rgba(29, 26, 23, 0.1);
+    margin-bottom: 0.5rem;
+    position: relative;
+    text-align: center;
+    max-width: 300px;
+    transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+
+  .bubble::after {
+    content: "";
+    position: absolute;
+    bottom: -6px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: 6px 6px 0;
+    border-style: solid;
+    border-color: #ffffff transparent transparent;
+  }
+
+  .bubble.pop {
+    transform: scale(1.06);
+  }
+
+  .pic {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .pic svg {
+    width: min(100%, 410px);
+    height: auto;
+    display: block;
+    transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+
+  .pic:hover svg {
+    transform: translateY(-2px);
+  }
+
+  .pic:active svg {
+    transform: scale(0.97) translateY(2px);
+  }
+
+  /* Minimālistiska darbību josla bez smagnējiem rāmjiem */
+  .interact-bar {
+    max-width: 1040px;
+    margin: 0 auto;
+    padding: 1.75rem 1.5rem 0;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.45rem;
+  }
+
+  .act-btn {
+    background: transparent;
+    color: var(--text);
+    border: 1.5px solid var(--line);
+    border-radius: 999px;
+    padding: 0.5rem 1rem;
+    font: 700 0.9rem/1 inherit;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    transition: border-color 0.15s ease, background-color 0.15s ease, transform 0.15s ease;
+  }
+
+  .act-btn:hover {
+    border-color: var(--text);
+    transform: translateY(-1px);
+  }
+
+  .act-btn:active {
+    transform: scale(0.96);
+  }
+
+  .act-btn.beaver-btn:hover {
+    background: var(--ball);
+    color: var(--ink);
+    border-color: var(--ink);
+  }
+
+  .beaver-icon {
+    display: inline-block;
+    transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+
+  .beaver-btn:hover .beaver-icon,
+  .beaver-shake {
+    animation: beaverWobble 0.45s ease-in-out;
+  }
+
+  @keyframes beaverWobble {
+    0%, 100% { transform: rotate(0deg) scale(1); }
+    25% { transform: rotate(-18deg) scale(1.25); }
+    50% { transform: rotate(15deg) scale(1.2); }
+    75% { transform: rotate(-10deg) scale(1.15); }
+  }
+
+  /* Teo laika mašīna — minimālistisks slīdnis */
+  .time-machine {
+    margin-top: 3.5rem;
+    padding-top: 2.5rem;
+    border-top: 2px solid var(--line);
+    max-width: 62ch;
+  }
+
+  .tm-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .tm-title {
+    font: 800 1.35rem/1.2 "Avenir Next", ui-rounded, system-ui, sans-serif;
+    letter-spacing: -0.02em;
+  }
+
+  .tm-reset {
+    background: none;
+    border: none;
+    color: var(--mute);
+    font: 700 0.85rem/1 inherit;
+    cursor: pointer;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    padding: 0.2rem 0;
+  }
+
+  .tm-reset:hover {
+    color: var(--text);
+  }
+
+  .tm-desc {
+    color: var(--mute);
+    font-size: 0.95rem;
+    margin-top: 0.25rem;
+  }
+
+  .tm-slider-wrap {
+    margin: 1.25rem 0 1rem;
+  }
+
+  input[type="range"].tm-slider {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+    height: 8px;
+    background: var(--line);
+    border-radius: 999px;
+    outline: none;
+    cursor: pointer;
+  }
+
+  input[type="range"].tm-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: var(--ball);
+    border: 3px solid var(--ink);
+    cursor: grab;
+    transition: transform 0.15s ease;
+  }
+
+  input[type="range"].tm-slider::-webkit-slider-thumb:hover {
+    transform: scale(1.15);
+  }
+
+  input[type="range"].tm-slider::-moz-range-thumb {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: var(--ball);
+    border: 3px solid var(--ink);
+    cursor: grab;
+  }
+
+  .tm-output {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 1.5rem;
+    align-items: baseline;
+  }
+
+  .tm-date {
+    font-weight: 800;
+    color: var(--text);
+  }
+
+  .tm-age {
+    color: var(--mute);
+    font-weight: 600;
+  }
+
+  .tm-human {
+    display: inline-block;
+    background: var(--card);
+    color: var(--text);
+    font-weight: 700;
+    font-size: 0.88rem;
+    padding: 0.2rem 0.65rem;
+    border-radius: 999px;
+  }
+
+  /* Konfeti audekls */
+  #confetti-canvas {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 120;
+  }
+
+  /* Galvenais saturs — tīrs <dl> saraksts */
+  .confetti {
+    position: fixed;
+    width: 9px;
+    height: 9px;
+    border-radius: 2px;
+    pointer-events: none;
+    z-index: 100;
+    animation: confettiFall 1.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+  }
+
+  @keyframes floatUp {
+    0% { transform: translate(-50%, 0) scale(0.6); opacity: 1; }
+    100% { transform: translate(calc(-50% + var(--dx, 0px)), -100px) scale(1.25); opacity: 0; }
+  }
+
+  @keyframes confettiFall {
+    0% { transform: translate(0, 0) rotate(0deg) scale(1); opacity: 1; }
+    100% { transform: translate(var(--tx, 0px), var(--ty, 140px)) rotate(var(--rot, 360deg)) scale(0.7); opacity: 0; }
+  }
+
+  /* Pēda */
+  footer {
+    max-width: 1040px;
+    margin: 5rem auto 0;
+    padding: 1.5rem;
+    border-top: 2px solid var(--line);
+    color: var(--mute);
+    font-size: 0.9rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .footer-controls {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+  }
+
+  .text-btn {
+    background: none;
+    border: none;
+    color: var(--mute);
+    font: 600 0.88rem/1 inherit;
+    cursor: pointer;
+    padding: 0.25rem 0;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  .text-btn:hover {
+    color: var(--text);
+  }
+
+  /* Ausu animācijas */
+  .ear {
+    transform-origin: 50% 90%;
+    animation: wiggle 1.2s ease-in-out 0.6s 2;
+  }
+  .ear.r {
+    animation-name: wiggle-r;
+  }
+  .ear-wiggle-now {
+    animation: wiggle 0.32s ease-in-out 3 !important;
+  }
+  .ear.r.ear-wiggle-now {
+    animation: wiggle-r 0.32s ease-in-out 3 !important;
+  }
+
+  @keyframes wiggle {
+    50% { transform: rotate(-7deg); }
+  }
+  @keyframes wiggle-r {
+    50% { transform: rotate(7deg); }
+  }
+
+  @media (max-width: 720px) {
+    .hero-in {
+      grid-template-columns: 1fr;
+    }
+    .hero-text {
+      padding-bottom: 1.5rem;
+    }
+    .pic-area {
+      order: -1;
+      margin-top: -0.5rem;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .ear {
+      animation: none;
+    }
+  }
 </style>
 </head>
 <body>
-<header class="hero"><div class="hero-in">
-  <div class="hero-text">
-    <h1>Teo</h1>
-    <p class="breed">Franču buldogs</p>
-    <p id="age">Dzimis 2024. gada 11. maijā</p>
+
+<header class="hero">
+  <div class="hero-in">
+    <div class="hero-text">
+      <h1>Teo</h1>
+      <p class="breed">Franču buldogs</p>
+      <p class="born-date">Dzimis 2024. gada 11. maijā</p>
+
+      <div class="age-box" aria-live="polite">
+        <div class="age-value" id="age-value">…</div>
+        <div class="age-sub" id="age-sub">…</div>
+        <div class="age-live" id="age-live">…</div>
+        <div class="age-pills" role="tablist" aria-label="Vecuma attēlošanas veids">
+          <button class="pill-btn active" type="button" data-mode="ymd">Gadi, mēneši, dienas</button>
+          <button class="pill-btn" type="button" data-mode="yd">Gadi un dienas</button>
+          <button class="pill-btn" type="button" data-mode="human">Cilvēka gados</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="pic-area">
+      <div class="bubble" id="speech">Vau! Paglaudi mani vai iedod bebru! 🐾</div>
+      <div class="pic" id="pic" role="button" tabindex="0" aria-label="Paglaudīt Teo">
+        <svg id="teo-svg" viewBox="0 0 200 200" role="img" aria-label="Franču buldoga Teo zīmējums">
+          <g class="ear" id="ear-l">
+            <path d="M42 98C14 28 40 6 66 24c16 12 16 44 14 70z" fill="var(--snout)"/>
+            <path d="M48 88C32 40 46 28 60 36c8 8 8 30 8 52z" fill="var(--ear)"/>
+          </g>
+          <g class="ear r" id="ear-r">
+            <path d="M158 98c28-70 2-92-24-74-16 12-16 44-14 70z" fill="var(--snout)"/>
+            <path d="M152 88c16-48 2-60-12-52-8 8-8 30-8 52z" fill="var(--ear)"/>
+          </g>
+          <ellipse cx="100" cy="125" rx="70" ry="68" fill="var(--fawn)"/>
+          <path d="M78 86q22-9 44 0" fill="none" stroke="var(--snout)" stroke-width="3" stroke-linecap="round" opacity=".5"/>
+          <path id="teo-tongue" d="M91 156 v12 a9 9 0 0 0 18 0 v-12 z" fill="var(--tongue)" opacity="0" style="transition: opacity 0.2s ease;"/>
+          <ellipse cx="100" cy="150" rx="38" ry="28" fill="var(--snout)"/>
+
+          <!-- Atvērtās acis -->
+          <g id="eyes-open">
+            <circle cx="72" cy="114" r="9.5" fill="#1d1a17"/>
+            <circle cx="128" cy="114" r="9.5" fill="#1d1a17"/>
+            <g id="pupils">
+              <circle cx="75" cy="111" r="2.9" fill="#fff"/>
+              <circle cx="131" cy="111" r="2.9" fill="#fff"/>
+            </g>
+          </g>
+
+          <!-- Aizvērtās acis snaudas režīmam -->
+          <g id="eyes-closed" opacity="0">
+            <path d="M62 114 q10 8 20 0" fill="none" stroke="#1d1a17" stroke-width="3.5" stroke-linecap="round"/>
+            <path d="M118 114 q10 8 20 0" fill="none" stroke="#1d1a17" stroke-width="3.5" stroke-linecap="round"/>
+          </g>
+
+          <ellipse cx="100" cy="138" rx="13" ry="9" fill="#0d0b0a"/>
+          <path d="M100 147v9M100 156q-9 8-18 0M100 156q9 8 18 0" fill="none" stroke="#0d0b0a" stroke-width="3" stroke-linecap="round"/>
+        </svg>
+      </div>
+    </div>
   </div>
-  <div class="pic" id="pic">
-    <!-- Kad pievienosi foto site/teo.jpg, tas automātiski aizstās šo zīmējumu -->
-    <svg viewBox="0 0 200 200" role="img" aria-label="Franču buldoga Teo zīmējums">
-      <g class="ear"><path d="M42 98C14 28 40 6 66 24c16 12 16 44 14 70z" fill="var(--snout)"/><path d="M48 88C32 40 46 28 60 36c8 8 8 30 8 52z" fill="var(--ear)"/></g>
-      <g class="ear r"><path d="M158 98c28-70 2-92-24-74-16 12-16 44-14 70z" fill="var(--snout)"/><path d="M152 88c16-48 2-60-12-52-8 8-8 30-8 52z" fill="var(--ear)"/></g>
-      <ellipse cx="100" cy="125" rx="70" ry="68" fill="var(--fawn)"/>
-      <path d="M78 86q22-9 44 0" fill="none" stroke="var(--snout)" stroke-width="3" stroke-linecap="round" opacity=".5"/>
-      <ellipse cx="100" cy="150" rx="38" ry="28" fill="var(--snout)"/>
-      <circle cx="72" cy="114" r="9" fill="#1d1a17"/><circle cx="128" cy="114" r="9" fill="#1d1a17"/>
-      <circle cx="75" cy="111" r="2.8" fill="#fff"/><circle cx="131" cy="111" r="2.8" fill="#fff"/>
-      <ellipse cx="100" cy="138" rx="13" ry="9" fill="#0d0b0a"/>
-      <path d="M100 147v9M100 156q-9 8-18 0M100 156q9 8 18 0" fill="none" stroke="#0d0b0a" stroke-width="3" stroke-linecap="round"/>
-    </svg>
-  </div>
-</div></header>
+</header>
+
+<canvas id="confetti-canvas"></canvas>
+
+<div class="interact-bar" aria-label="Darbības ar Teo">
+  <button class="act-btn" type="button" data-action="pet">🤚 Paglaudīt</button>
+  <button class="act-btn beaver-btn" type="button" data-action="beaver" id="beaver-btn"><span class="beaver-icon" id="beaver-icon">🦫</span> Iedot bebru</button>
+  <button class="act-btn" type="button" data-action="treat">🧀 Iedot kārumu</button>
+  <button class="act-btn" type="button" data-action="nap">💤 Nosnausties</button>
+  <button class="act-btn" type="button" data-action="celebrate">🎉 Svinēt!</button>
+</div>
 
 <main>
   <section>
-    <h2>Teo skaitļos</h2>
-    <div class="stats">
-      <div class="stat"><b id="days">…</b><span>dienas kopš dzimšanas</span></div>
-      <div class="stat"><b id="weeks">…</b><span>nedēļas ar šņākšanu un krāktšanu</span></div>
-      <div class="stat"><b id="bday">…</b><span id="bdayl">līdz nākamajai dzimšanas dienai</span></div>
-    </div>
-  </section>
-
-  <section>
     <h2>Iepazīsties</h2>
-    <!-- Nomaini tekstus uz saviem faktiem par Teo -->
     <dl>
       <dt>Šķirne</dt>
       <dd>Franču buldogs: sikspārņa ausis, saburzīts purns un raksturs, kas ir lielāks par pašu suni.</dd>
+
       <dt>Zvaigznājs</dt>
       <dd>Vērsis. Dzimis 11. maijā, tāpēc stūrgalvība ir ierakstīta zvaigznēs.</dd>
-      <dt>Mīļākās lietas</dt>
-      <dd>Ieraksti šeit, ko Teo mīl visvairāk: ēdienu, rotaļlietu, vietu uz dīvāna.</dd>
-    </dl>
-  </section>
 
-  <section id="gal" hidden>
-    <h2>Foto</h2>
-    <div class="gallery" id="photos"></div>
+      <dt>Mīļākās lietas</dt>
+      <dd>
+        Rotaļlietu <button type="button" class="beaver-link" id="beaver-inline" title="Noklikšķini, lai dzirdētu bebra skaņu!">bebrs, kurš izdveš dažādas skaņas</button>, siera gabaliņš un labākā vieta uz dīvāna.
+      </dd>
+    </dl>
+
+    <!-- Minimālistiska Teo laika mašīna -->
+    <div class="time-machine" aria-label="Teo laika mašīna">
+      <div class="tm-header">
+        <h3 class="tm-title">Teo laika mašīna</h3>
+        <button type="button" class="tm-reset" id="tm-reset" hidden>Atgriezties šodienā</button>
+      </div>
+      <p class="tm-desc">Pavelc slīdni, lai redzētu, cik vecs Teo būs nākotnē.</p>
+      <div class="tm-slider-wrap">
+        <input type="range" class="tm-slider" id="tm-slider" min="0" max="5475" value="0" aria-label="Dienas nākotnē">
+      </div>
+      <div class="tm-output" aria-live="polite">
+        <span class="tm-date" id="tm-date">Šodien</span>
+        <span class="tm-age" id="tm-age">…</span>
+        <span class="tm-human" id="tm-human">…</span>
+      </div>
+    </div>
   </section>
 </main>
 
-<footer>teoteo.lv </footer>
+<footer>
+  <span>teoteo.lv</span>
+  <div class="footer-controls">
+    <button type="button" class="text-btn" id="sound-toggle">Skaņa: ieslēgta</button>
+    <button type="button" class="text-btn" id="theme-toggle">Mainīt tēmu</button>
+  </div>
+</footer>
 
 <script>
-const born = new Date(2024, 4, 11), now = new Date(), today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
-const pl = (n, one, many) => n + ' ' + (n % 10 === 1 && n % 100 !== 11 ? one : many);
-let y = today.getFullYear() - 2024, m = today.getMonth() - 4, d = today.getDate() - 11;
-if (d < 0) { m--; d += new Date(today.getFullYear(), today.getMonth(), 0).getDate(); }
-if (m < 0) { y--; m += 12; }
-document.getElementById('age').textContent = 'Dzimis 2024. gada 11. maijā, tātad šodien Teo ir ' +
-  [y && pl(y, 'gads', 'gadi'), m && pl(m, 'mēnesis', 'mēneši'), d && pl(d, 'diena', 'dienas')].filter(Boolean).join(', ') + ' vecs.';
-const days = Math.round((today - born) / 864e5), fmt = n => n.toLocaleString('lv-LV');
-document.getElementById('days').textContent = fmt(days);
-document.getElementById('weeks').textContent = fmt(Math.floor(days / 7));
-let next = new Date(today.getFullYear(), 4, 11);
-if (next < today) next.setFullYear(next.getFullYear() + 1);
-const left = Math.round((next - today) / 864e5);
-document.getElementById('bday').textContent = left === 0 ? 'Šodien!' : fmt(left);
-document.getElementById('bdayl').textContent = left === 0 ? 'Teo svin ' + (next.getFullYear() - 2024) + '. dzimšanas dienu' : 'dienas līdz ' + (next.getFullYear() - 2024) + '. dzimšanas dienai';
+(() => {
+  // 1. VECUMA APRĒĶINI (Dzimis 2024. gada 11. maijā)
+  const born = new Date(2024, 4, 11, 0, 0, 0);
+  const pl = (n, one, many) => `${n} ${n % 10 === 1 && n % 100 !== 11 ? one : many}`;
 
-// Galvenais foto: ieliec site/teo.jpg
-const im = new Image(); im.alt = 'Teo'; im.onload = () => document.getElementById('pic').replaceChildren(im); im.src = 'teo.jpg';
-// Galerija: ieraksti failu nosaukumus, piem. ['foto1.jpg', 'foto2.jpg']
-const photos = [];
-if (photos.length) { document.getElementById('gal').hidden = false; document.getElementById('photos').replaceChildren(...photos.map(f => Object.assign(new Image(), { src: f, alt: 'Teo', loading: 'lazy' }))); }
+  function calculateAge(targetDate) {
+    const day = new Date(targetDate.getFullYear(), targetDate.getMonth(), targetDate.getDate());
+    let y = day.getFullYear() - born.getFullYear();
+    let m = day.getMonth() - born.getMonth();
+    let d = day.getDate() - born.getDate();
+
+    if (d < 0) {
+      m--;
+      d += new Date(day.getFullYear(), day.getMonth(), 0).getDate();
+    }
+    if (m < 0) {
+      y--;
+      m += 12;
+    }
+
+    const totalDays = Math.max(0, Math.round((day - born) / 864e5));
+
+    // Pilnie gadi un dienas kopš pēdējās dzimšanas dienas (piem., "2 gadi un 193 dienas")
+    let lastBday = new Date(day.getFullYear(), born.getMonth(), born.getDate());
+    if (lastBday > day) {
+      lastBday.setFullYear(lastBday.getFullYear() - 1);
+    }
+    const yearsOnly = lastBday.getFullYear() - born.getFullYear();
+    const daysSinceBday = Math.max(0, Math.round((day - lastBday) / 864e5));
+
+    // Atskaitīšana līdz nākamajai dzimšanas dienai
+    let nextBday = new Date(day.getFullYear(), born.getMonth(), born.getDate());
+    if (nextBday < day) {
+      nextBday.setFullYear(nextBday.getFullYear() + 1);
+    }
+    const daysLeft = Math.round((nextBday - day) / 864e5);
+    const nextAge = nextBday.getFullYear() - born.getFullYear();
+
+    // Cilvēka gadu ekvivalents
+    const exactYears = totalDays / 365.2425;
+    let humanYears = 0;
+    if (exactYears <= 1) {
+      humanYears = Math.round(exactYears * 15);
+    } else if (exactYears <= 2) {
+      humanYears = Math.round(15 + (exactYears - 1) * 9);
+    } else {
+      humanYears = Math.round(24 + (exactYears - 2) * 5);
+    }
+
+    return { y, m, d, totalDays, yearsOnly, daysSinceBday, daysLeft, nextAge, humanYears };
+  }
+
+  let ageMode = 'ymd';
+  const ageValueEl = document.getElementById('age-value');
+  const ageSubEl = document.getElementById('age-sub');
+  const ageLiveEl = document.getElementById('age-live');
+
+  function formatYMD(info) {
+    const parts = [
+      info.y > 0 ? pl(info.y, 'gads', 'gadi') : null,
+      info.m > 0 ? pl(info.m, 'mēnesis', 'mēneši') : null,
+      (info.d > 0 || (info.y === 0 && info.m === 0)) ? pl(info.d, 'diena', 'dienas') : null
+    ].filter(Boolean);
+    return parts.join(', ');
+  }
+
+  function renderAge() {
+    const now = new Date();
+    const info = calculateAge(now);
+
+    if (ageMode === 'ymd') {
+      ageValueEl.textContent = `Šodien Teo ir ${formatYMD(info)} vecs`;
+    } else if (ageMode === 'yd') {
+      const parts = [
+        info.yearsOnly > 0 ? pl(info.yearsOnly, 'gads', 'gadi') : null,
+        pl(info.daysSinceBday, 'diena', 'dienas')
+      ].filter(Boolean);
+      ageValueEl.textContent = `Šodien Teo ir ${parts.join(' un ')} vecs`;
+    } else {
+      ageValueEl.textContent = `≈ ${pl(info.humanYears, 'cilvēka gads', 'cilvēka gadi')}`;
+    }
+
+    const bdayText = info.daysLeft === 0
+      ? `Šodien Teo svin ${info.nextAge}. dzimšanas dienu! 🎂`
+      : `Līdz ${info.nextAge}. dzimšanas dienai atlikušas ${pl(info.daysLeft, 'diena', 'dienas')}`;
+
+    ageSubEl.textContent = `Kopā ${info.totalDays.toLocaleString('lv-LV')} dienas • ${bdayText}`;
+
+    // Dzīvais stundu, minūšu un sekunžu skaitītājs šodienā
+    const h = String(now.getHours()).padStart(2, '0');
+    const min = String(now.getMinutes()).padStart(2, '0');
+    const s = String(now.getSeconds()).padStart(2, '0');
+    ageLiveEl.textContent = `Un vēl ${h} st. ${min} min. ${s} sek.`;
+  }
+
+  document.querySelectorAll('.pill-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.pill-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      ageMode = btn.dataset.mode;
+      renderAge();
+    });
+  });
+
+  renderAge();
+  setInterval(renderAge, 1000);
+
+  // 1.5. TEO LAIKA MAŠĪNA (SLĪDNIS)
+  const tmSlider = document.getElementById('tm-slider');
+  const tmDateEl = document.getElementById('tm-date');
+  const tmAgeEl = document.getElementById('tm-age');
+  const tmHumanEl = document.getElementById('tm-human');
+  const tmResetBtn = document.getElementById('tm-reset');
+  const lvMonths = ['janvārī', 'februārī', 'martā', 'aprīlī', 'maijā', 'jūnijā', 'jūlijā', 'augustā', 'septembrī', 'oktobrī', 'novembrī', 'decembrī'];
+
+  function updateTimeMachine() {
+    const offsetDays = parseInt(tmSlider.value, 10) || 0;
+    const targetDate = new Date();
+    targetDate.setDate(targetDate.getDate() + offsetDays);
+
+    const info = calculateAge(targetDate);
+    if (offsetDays === 0) {
+      tmDateEl.textContent = 'Šodien';
+      tmResetBtn.hidden = true;
+    } else {
+      tmDateEl.textContent = `${targetDate.getFullYear()}. gada ${targetDate.getDate()}. ${lvMonths[targetDate.getMonth()]}`;
+      tmResetBtn.hidden = false;
+    }
+
+    tmAgeEl.textContent = `${formatYMD(info)} (${info.yearsOnly} ${info.yearsOnly % 10 === 1 && info.yearsOnly % 100 !== 11 ? 'gads' : 'gadi'}, ${pl(info.daysSinceBday, 'diena', 'dienas')})`;
+    tmHumanEl.textContent = `≈ ${pl(info.humanYears, 'cilvēka gads', 'cilvēka gadi')}`;
+  }
+
+  tmSlider.addEventListener('input', updateTimeMachine);
+  tmResetBtn.addEventListener('click', () => {
+    tmSlider.value = 0;
+    updateTimeMachine();
+  });
+  updateTimeMachine();
+
+  // 2. WEB AUDIO SINTĒZE (Rotaļlietu bebrs ar dažādām skaņām & Teo skaņas)
+
+      if (type === 'beaver') {
+        // Rotaļlietu bebrs izdveš dažādas pīkstienu/kvīkstienu skaņas katrā reizē
+        const variant = beaverSoundIndex % 5;
+        beaverSoundIndex++;
+        const osc = audioCtx.createOscillator();
+        const gain = audioCtx.createGain();
+
+        if (variant === 0) {
+          // Augsts gumijas rotaļlietas pīkstiens
+          osc.type = 'sine';
+          osc.frequency.setValueAtTime(640, now);
+          osc.frequency.exponentialRampToValueAtTime(1240, now + 0.1);
+          osc.frequency.exponentialRampToValueAtTime(760, now + 0.22);
+          gain.gain.setValueAtTime(0.14, now);
+          gain.gain.exponentialRampToValueAtTime(0.001, now + 0.24);
+          osc.connect(gain);
+          gain.connect(audioCtx.destination);
+          osc.start(now);
+          osc.stop(now + 0.25);
+        } else if (variant === 1) {
+          // Dubultais "pī-pī!"
+          osc.type = 'triangle';
+          osc.frequency.setValueAtTime(780, now);
+          osc.frequency.setValueAtTime(1040, now + 0.12);
+          gain.gain.setValueAtTime(0.13, now);
+          gain.gain.setValueAtTime(0.01, now + 0.09);
+          gain.gain.setValueAtTime(0.14, now + 0.12);
+          gain.gain.exponentialRampToValueAtTime(0.001, now + 0.25);
+          osc.connect(gain);
+          gain.connect(audioCtx.destination);
+          osc.start(now);
+          osc.stop(now + 0.26);
+        } else if (variant === 2) {
+          // Zems bebra urkšķis
+          osc.type = 'sawtooth';
+          osc.frequency.setValueAtTime(230, now);
+          osc.frequency.linearRampToValueAtTime(135, now + 0.18);
+          osc.frequency.linearRampToValueAtTime(270, now + 0.3);
+          gain.gain.setValueAtTime(0.1, now);
+          gain.gain.exponentialRampToValueAtTime(0.001, now + 0.32);
+          osc.connect(gain);
+          gain.connect(audioCtx.destination);
+          osc.start(now);
+          osc.stop(now + 0.33);
+        } else if (variant === 3) {
+          // Garš gaisa izpūtiens no rotaļlietas
+          osc.type = 'sine';
+          osc.frequency.setValueAtTime(980, now);
+          osc.frequency.exponentialRampToValueAtTime(440, now + 0.28);
+          gain.gain.setValueAtTime(0.13, now);
+          gain.gain.exponentialRampToValueAtTime(0.001, now + 0.3);
+          osc.connect(gain);
+          gain.connect(audioCtx.destination);
+          osc.start(now);
+          osc.stop(now + 0.31);
+        } else {
+          // Gaisīgs saspiestas rotaļlietas svilpiens
+          osc.type = 'sine';
+          osc.frequency.setValueAtTime(920, now);
+          osc.frequency.exponentialRampToValueAtTime(480, now + 0.26);
+          gain.gain.setValueAtTime(0.13, now);
+          gain.gain.exponentialRampToValueAtTime(0.001, now + 0.28);
+          osc.connect(gain);
+          gain.connect(audioCtx.destination);
+          osc.start(now);
+          osc.stop(now + 0.29);
+        }
+      } else if (type === 'crunch') {
+        // Kraukšķīga siera kāruma skaņa
+        const osc = audioCtx.createOscillator();
+        const gain = audioCtx.createGain();
+        osc.type = 'square';
+        osc.frequency.setValueAtTime(320, now);
+        osc.frequency.exponentialRampToValueAtTime(120, now + 0.08);
+        osc.frequency.setValueAtTime(410, now + 0.1);
+        osc.frequency.exponentialRampToValueAtTime(150, now + 0.18);
+        gain.gain.setValueAtTime(0.1, now);
+        gain.gain.exponentialRampToValueAtTime(0.001, now + 0.19);
+        osc.connect(gain);
+        gain.connect(audioCtx.destination);
+        osc.start(now);
+        osc.stop(now + 0.2);
+      } else if (type === 'snort') {
+        const osc = audioCtx.createOscillator();
+        const gain = audioCtx.createGain();
+        osc.type = 'triangle';
+        osc.frequency.setValueAtTime(115, now);
+        osc.frequency.linearRampToValueAtTime(78, now + 0.16);
+        gain.gain.setValueAtTime(0.15, now);
+        gain.gain.exponentialRampToValueAtTime(0.001, now + 0.18);
+        osc.connect(gain);
+        gain.connect(audioCtx.destination);
+        osc.start(now);
+        osc.stop(now + 0.19);
+      } else if (type === 'bark') {
+        const osc = audioCtx.createOscillator();
+        const gain = audioCtx.createGain();
+        osc.type = 'sawtooth';
+        osc.frequency.setValueAtTime(215, now);
+        osc.frequency.exponentialRampToValueAtTime(340, now + 0.06);
+        osc.frequency.exponentialRampToValueAtTime(135, now + 0.18);
+        gain.gain.setValueAtTime(0.12, now);
+        gain.gain.exponentialRampToValueAtTime(0.001, now + 0.2);
+        osc.connect(gain);
+        gain.connect(audioCtx.destination);
+        osc.start(now);
+        osc.stop(now + 0.21);
+      } else if (type === 'party') {
+        [523.25, 659.25, 783.99, 1046.5].forEach((freq, i) => {
+          const osc = audioCtx.createOscillator();
+          const gain = audioCtx.createGain();
+          osc.type = 'triangle';
+          osc.frequency.setValueAtTime(freq, now + i * 0.08);
+          gain.gain.setValueAtTime(0.12, now + i * 0.08);
+          gain.gain.exponentialRampToValueAtTime(0.001, now + i * 0.08 + 0.24);
+          osc.connect(gain);
+          gain.connect(audioCtx.destination);
+          osc.start(now + i * 0.08);
+          osc.stop(now + i * 0.08 + 0.25);
+        });
+      }
+    } catch (e) {
+      // Ignorē audio ierobežojumus
+    }
+  }
+
+  const soundToggleBtn = document.getElementById('sound-toggle');
+  soundToggleBtn.addEventListener('click', () => {
+    soundOn = !soundOn;
+    soundToggleBtn.textContent = soundOn ? 'Skaņa: ieslēgta' : 'Skaņa: izslēgta';
+  });
+
+  // 4. INTERAKTĪVAIS TEO VARONIS UN DARBĪBAS
+  const pupils = document.getElementById('pupils');
+  const earL = document.getElementById('ear-l');
+  const earR = document.getElementById('ear-r');
+  const tongue = document.getElementById('teo-tongue');
+  const cheekL = document.getElementById('cheek-l');
+  const cheekR = document.getElementById('cheek-r');
+  const eyesOpen = document.getElementById('eyes-open');
+  const eyesClosed = document.getElementById('eyes-closed');
+  const speechEl = document.getElementById('speech');
+
+  window.addEventListener('mousemove', (e) => {
+    const svg = document.getElementById('teo-svg');
+    if (!svg || !pupils) return;
+    const rect = svg.getBoundingClientRect();
+    const cx = rect.left + rect.width / 2;
+    const cy = rect.top + rect.height / 2;
+    const dx = Math.max(-3.2, Math.min(3.2, (e.clientX - cx) / 60));
+    const dy = Math.max(-3.2, Math.min(3.2, (e.clientY - cy) / 60));
+    pupils.setAttribute('transform', `translate(${dx.toFixed(2)}, ${dy.toFixed(2)})`);
+  });
+
+  function setSleeping(sleeping) {
+    eyesOpen.style.opacity = sleeping ? '0' : '1';
+    eyesClosed.style.opacity = sleeping ? '1' : '0';
+  }
+
+  function animateTeo({ showTongue = true, blush = false, sleep = false } = {}) {
+    setSleeping(sleep);
+
+    earL.classList.remove('ear-wiggle-now');
+    earR.classList.remove('ear-wiggle-now');
+    void earL.offsetWidth;
+    earL.classList.add('ear-wiggle-now');
+    earR.classList.add('ear-wiggle-now');
+
+    if (showTongue) {
+      tongue.style.opacity = '1';
+      clearTimeout(tongue._t);
+      tongue._t = setTimeout(() => { tongue.style.opacity = '0'; }, 1500);
+    }
+
+    if (blush) {
+      cheekL.style.opacity = '0.75';
+      cheekR.style.opacity = '0.75';
+      clearTimeout(cheekL._t);
+      cheekL._t = setTimeout(() => {
+        cheekL.style.opacity = '0';
+        cheekR.style.opacity = '0';
+      }, 1800);
+    }
+  }
+
+  function say(text) {
+    speechEl.textContent = text;
+    speechEl.classList.remove('pop');
+    void speechEl.offsetWidth;
+    speechEl.classList.add('pop');
+  }
+
+  function spawnFloater(emoji, x, y) {
+    const el = document.createElement('div');
+    el.className = 'floater';
+    el.textContent = emoji;
+    el.style.left = `${x}px`;
+    el.style.top = `${y}px`;
+    el.style.setProperty('--dx', `${(Math.random() - 0.5) * 75}px`);
+    document.body.appendChild(el);
+    setTimeout(() => el.remove(), 1050);
+  }
+
+  function spawnConfetti(x, y) {
+    const colors = ['#dff35a', '#1d1a17', '#cf9a63', '#e9a3a0', '#ffffff'];
+    for (let i = 0; i < 26; i++) {
+      const el = document.createElement('div');
+      el.className = 'confetti';
+      el.style.left = `${x}px`;
+      el.style.top = `${y}px`;
+      el.style.backgroundColor = colors[i % colors.length];
+      el.style.setProperty('--tx', `${(Math.random() - 0.5) * 260}px`);
+      el.style.setProperty('--ty', `${-70 + Math.random() * 220}px`);
+      el.style.setProperty('--rot', `${(Math.random() - 0.5) * 720}deg`);
+      document.body.appendChild(el);
+      setTimeout(() => el.remove(), 1300);
+    }
+  }
+
+  const beaverLines = [
+    'Pī-pī! Mans mīļākais bebrs! 🦫',
+    'Urk-urk! Bebrs atkal runā! 🦫',
+    'Šņāc-šņāc! Saspiežam bebru vēlreiz!',
+    'Kvī-kvī! Šī ir vislabākā skaņa pasaulē!',
+    'Vau! Neatdošu bebru nevienam! 🦫'
+  ];
+
+  const petLines = [
+    'Mmmm, pakasi aiz austiņas! ❤️',
+    'Šņāc-šņāc! Tik labi!',
+    'Labākais puisis pasaulē! 🐾'
+  ];
+
+  function handleAction(action, clientX, clientY) {
+    const picRect = document.getElementById('pic').getBoundingClientRect();
+    const x = clientX || (picRect.left + picRect.width / 2);
+    const y = clientY || (picRect.top + picRect.height * 0.35);
+
+    if (action === 'pet') {
+      animateTeo({ showTongue: true, blush: true, sleep: false });
+      playSound('snort');
+      spawnFloater('❤️', x, y);
+      say(petLines[Math.floor(Math.random() * petLines.length)]);
+    } else if (action === 'beaver') {
+      animateTeo({ showTongue: true, blush: false, sleep: false });
+      playSound('beaver');
+      spawnFloater('🦫', x, y);
+      say(beaverLines[beaverSoundIndex % beaverLines.length]);
+    } else if (action === 'cheese') {
+      animateTeo({ showTongue: true, blush: true, sleep: false });
+      playSound('bark');
+      spawnFloater('🧀', x, y);
+      say('Siers!! Vēl vienu gabaliņu, lūdzu! 🧀');
+    } else if (action === 'nap') {
+      animateTeo({ showTongue: false, blush: false, sleep: true });
+      playSound('snort');
+      spawnFloater('💤', x, y);
+      say('Hrrrr... šņāc... guļu uz dīvāna...');
+    } else if (action === 'party') {
+      animateTeo({ showTongue: true, blush: true, sleep: false });
+      playSound('party');
+      spawnConfetti(x, y);
+      spawnFloater('🎂', x, y);
+      say('Daudz laimes man! Kur ir kūka? 🎉');
+    }
+  }
+
+  const soundToggleBtn = document.getElementById('sound-toggle');
+  soundToggleBtn.addEventListener('click', () => {
+    soundOn = !soundOn;
+    soundToggleBtn.textContent = soundOn ? 'Skaņa: ieslēgta' : 'Skaņa: izslēgta';
+  });
+
+  // 3. INTERAKTĪVAIS TEO VARONIS UN DARBĪBAS
+  const pupils = document.getElementById('pupils');
+  const eyesOpen = document.getElementById('eyes-open');
+  const eyesClosed = document.getElementById('eyes-closed');
+  const earL = document.getElementById('ear-l');
+  const earR = document.getElementById('ear-r');
+  const tongue = document.getElementById('teo-tongue');
+  const speechEl = document.getElementById('speech');
+  const beaverIcon = document.getElementById('beaver-icon');
+  let napTimeout = null;
+  let snoreInterval = null;
+
+  window.addEventListener('mousemove', (e) => {
+    const svg = document.getElementById('teo-svg');
+    if (!svg || !pupils) return;
+    const rect = svg.getBoundingClientRect();
+    const cx = rect.left + rect.width / 2;
+    const cy = rect.top + rect.height / 2;
+    const dx = Math.max(-3.2, Math.min(3.2, (e.clientX - cx) / 60));
+    const dy = Math.max(-3.2, Math.min(3.2, (e.clientY - cy) / 60));
+    pupils.setAttribute('transform', `translate(${dx.toFixed(2)}, ${dy.toFixed(2)})`);
+  });
+
+  function wakeUp() {
+    if (eyesClosed.getAttribute('opacity') === '1') {
+      eyesClosed.setAttribute('opacity', '0');
+      eyesOpen.setAttribute('opacity', '1');
+    }
+    clearTimeout(napTimeout);
+    clearInterval(snoreInterval);
+  }
+
+  function animateTeo(showTongue = true) {
+    wakeUp();
+    earL.classList.remove('ear-wiggle-now');
+    earR.classList.remove('ear-wiggle-now');
+    void earL.offsetWidth;
+    earL.classList.add('ear-wiggle-now');
+    earR.classList.add('ear-wiggle-now');
+
+    if (showTongue) {
+      tongue.style.opacity = '1';
+      clearTimeout(tongue._t);
+      tongue._t = setTimeout(() => { tongue.style.opacity = '0'; }, 1500);
+    }
+  }
+
+  function say(text) {
+    speechEl.textContent = text;
+    speechEl.classList.remove('pop');
+    void speechEl.offsetWidth;
+    speechEl.classList.add('pop');
+  }
+
+  function spawnFloater(emoji, x, y) {
+    const el = document.createElement('div');
+    el.className = 'floater';
+    el.textContent = emoji;
+    el.style.left = `${x}px`;
+    el.style.top = `${y}px`;
+    el.style.setProperty('--dx', `${(Math.random() - 0.5) * 70}px`);
+    document.body.appendChild(el);
+    setTimeout(() => el.remove(), 1000);
+  }
+
+  const beaverLines = [
+    'Pī-pī! Mans mīļākais bebrs! 🦫',
+    'Ruk-ruk! Bebrs atkal runā! 🦫',
+    'Šņāc-šņāc! Spiežam bebru vēlreiz!',
+    'Vau! Šī ir vislabākā skaņa pasaulē!'
+  ];
+
+  const petLines = [
+    'Mmmm, pakasi aiz austiņas! ❤️',
+    'Šņāc-šņāc! Tik labi!',
+    'Labākais puisis! 🐾'
+  ];
+
+  // Konfeti animācija
+  function launchConfetti() {
+    const canvas = document.getElementById('confetti-canvas');
+    const ctx = canvas.getContext('2d');
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    const colors = ['#dff35a', '#1d1a17', '#cf9a63', '#e9a3a0', '#ffffff'];
+    const particles = Array.from({ length: 75 }, () => ({
+      x: Math.random() * canvas.width,
+      y: -20 - Math.random() * 120,
+      w: 7 + Math.random() * 7,
+      h: 5 + Math.random() * 5,
+      vx: (Math.random() - 0.5) * 4,
+      vy: 3 + Math.random() * 4.5,
+      rot: Math.random() * Math.PI * 2,
+      vrot: (Math.random() - 0.5) * 0.2,
+      color: colors[Math.floor(Math.random() * colors.length)]
+    }));
+
+    let frame = 0;
+    function tick() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      let active = false;
+      particles.forEach(p => {
+        p.x += p.vx;
+        p.y += p.vy;
+        p.rot += p.vrot;
+        if (p.y < canvas.height + 30) active = true;
+        ctx.save();
+        ctx.translate(p.x, p.y);
+        ctx.rotate(p.rot);
+        ctx.fillStyle = p.color;
+        ctx.fillRect(-p.w / 2, -p.h / 2, p.w, p.h);
+        ctx.restore();
+      });
+      frame++;
+      if (active && frame < 180) {
+        requestAnimationFrame(tick);
+      } else {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+      }
+    }
+    requestAnimationFrame(tick);
+  }
+
+  function handleAction(action, clientX, clientY) {
+    const picRect = document.getElementById('pic').getBoundingClientRect();
+    const x = clientX || (picRect.left + picRect.width / 2);
+    const y = clientY || (picRect.top + picRect.height * 0.35);
+
+    if (action === 'pet') {
+      animateTeo(true);
+      playSound('snort');
+      spawnFloater('❤️', x, y);
+      say(petLines[Math.floor(Math.random() * petLines.length)]);
+    } else if (action === 'beaver') {
+      animateTeo(true);
+      playSound('beaver');
+      spawnFloater('🦫', x, y);
+      beaverIcon.classList.remove('beaver-shake');
+      void beaverIcon.offsetWidth;
+      beaverIcon.classList.add('beaver-shake');
+      say(beaverLines[beaverSoundIndex % beaverLines.length]);
+    } else if (action === 'treat') {
+      animateTeo(true);
+      playSound('crunch');
+      spawnFloater('🧀', x, y);
+      say('Ņam! Siers ir dzīve! Vai ir vēl? 😋');
+    } else if (action === 'nap') {
+      wakeUp();
+      tongue.style.opacity = '0';
+      eyesOpen.setAttribute('opacity', '0');
+      eyesClosed.setAttribute('opacity', '1');
+      playSound('snort');
+      spawnFloater('💤', picRect.left + picRect.width / 2, picRect.top + picRect.height * 0.3);
+      say('Hrrrr... šņāc... guļu uz dīvāna...');
+
+      snoreInterval = setInterval(() => {
+        spawnFloater('💤', picRect.left + picRect.width * (0.45 + Math.random() * 0.1), picRect.top + picRect.height * 0.3);
+      }, 1100);
+
+      napTimeout = setTimeout(() => {
+        wakeUp();
+        say('O! Kas tas bija? Vai kāds atvēra ledusskapi? 👀');
+      }, 4500);
+    } else if (action === 'celebrate') {
+      animateTeo(true);
+      playSound('bark');
+      launchConfetti();
+      spawnFloater('🎉', x, y);
+      say('Urrā! Svinam katru dienu kopā! 🥳');
+    }
+  }
+
+  document.getElementById('pic').addEventListener('click', (e) => {
+    handleAction('pet', e.clientX, e.clientY);
+  });
+
+  document.getElementById('pic').addEventListener('keydown', (e) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      handleAction('pet');
+    }
+  });
+
+  document.querySelectorAll('[data-action]').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      handleAction(btn.dataset.action, e.clientX, e.clientY);
+    });
+  });
+
+  document.getElementById('beaver-inline').addEventListener('click', (e) => {
+    handleAction('beaver', e.clientX, e.clientY);
+  });
+
+  // 4. TĒMAS PĀRSLĒDZĒJS (GAIŠAIS / TUMŠAIS REŽĪMS)
+  document.getElementById('theme-toggle').addEventListener('click', () => {
+    const root = document.documentElement;
+    const isDark = root.getAttribute('data-theme') === 'dark' ||
+      (!root.hasAttribute('data-theme') && window.matchMedia('(prefers-color-scheme: dark)').matches);
+    root.setAttribute('data-theme', isDark ? 'light' : 'dark');
+  });
+})();
 </script>
 </body>
 </html>
