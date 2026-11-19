@@ -387,24 +387,66 @@
   }
 
   /* Galvenais saturs — tīrs <dl> saraksts */
-  .confetti {
+  main {
+    max-width: 1040px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  section {
+    padding: 3.5rem 0 0;
+  }
+
+  h2 {
+    font: 800 1.9rem/1.2 "Avenir Next", ui-rounded, system-ui, sans-serif;
+    letter-spacing: -0.02em;
+    margin-bottom: 1.5rem;
+  }
+
+  dl {
+    max-width: 62ch;
+  }
+
+  dt {
+    font-weight: 800;
+    margin-top: 1.6rem;
+  }
+
+  dd {
+    color: var(--mute);
+  }
+
+  .beaver-link {
+    background: none;
+    border: none;
+    padding: 0;
+    font: inherit;
+    font-weight: 700;
+    color: var(--text);
+    text-decoration: underline;
+    text-decoration-style: wavy;
+    text-decoration-color: var(--ball);
+    text-decoration-thickness: 2px;
+    text-underline-offset: 4px;
+    cursor: pointer;
+  }
+
+  .beaver-link:hover {
+    opacity: 0.8;
+  }
+
+  /* Peldošās emocijzīmes */
+  .floater {
     position: fixed;
-    width: 9px;
-    height: 9px;
-    border-radius: 2px;
     pointer-events: none;
-    z-index: 100;
-    animation: confettiFall 1.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+    font-size: 1.6rem;
+    z-index: 110;
+    animation: floatUp 1s cubic-bezier(0.22, 1, 0.36, 1) forwards;
   }
 
   @keyframes floatUp {
     0% { transform: translate(-50%, 0) scale(0.6); opacity: 1; }
     100% { transform: translate(calc(-50% + var(--dx, 0px)), -100px) scale(1.25); opacity: 0; }
-  }
-
-  @keyframes confettiFall {
-    0% { transform: translate(0, 0) rotate(0deg) scale(1); opacity: 1; }
-    100% { transform: translate(var(--tx, 0px), var(--ty, 140px)) rotate(var(--rot, 360deg)) scale(0.7); opacity: 0; }
   }
 
   /* Pēda */
@@ -742,6 +784,20 @@
   updateTimeMachine();
 
   // 2. WEB AUDIO SINTĒZE (Rotaļlietu bebrs ar dažādām skaņām & Teo skaņas)
+  let soundOn = true;
+  let audioCtx = null;
+  let beaverSoundIndex = 0;
+
+  function playSound(type) {
+    if (!soundOn) return;
+    try {
+      if (!audioCtx) {
+        audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+      }
+      if (audioCtx.state === 'suspended') {
+        audioCtx.resume();
+      }
+      const now = audioCtx.currentTime;
 
       if (type === 'beaver') {
         // Rotaļlietu bebrs izdveš dažādas pīkstienu/kvīkstienu skaņas katrā reizē
@@ -850,163 +906,9 @@
         gain.connect(audioCtx.destination);
         osc.start(now);
         osc.stop(now + 0.21);
-      } else if (type === 'party') {
-        [523.25, 659.25, 783.99, 1046.5].forEach((freq, i) => {
-          const osc = audioCtx.createOscillator();
-          const gain = audioCtx.createGain();
-          osc.type = 'triangle';
-          osc.frequency.setValueAtTime(freq, now + i * 0.08);
-          gain.gain.setValueAtTime(0.12, now + i * 0.08);
-          gain.gain.exponentialRampToValueAtTime(0.001, now + i * 0.08 + 0.24);
-          osc.connect(gain);
-          gain.connect(audioCtx.destination);
-          osc.start(now + i * 0.08);
-          osc.stop(now + i * 0.08 + 0.25);
-        });
       }
     } catch (e) {
       // Ignorē audio ierobežojumus
-    }
-  }
-
-  const soundToggleBtn = document.getElementById('sound-toggle');
-  soundToggleBtn.addEventListener('click', () => {
-    soundOn = !soundOn;
-    soundToggleBtn.textContent = soundOn ? 'Skaņa: ieslēgta' : 'Skaņa: izslēgta';
-  });
-
-  // 4. INTERAKTĪVAIS TEO VARONIS UN DARBĪBAS
-  const pupils = document.getElementById('pupils');
-  const earL = document.getElementById('ear-l');
-  const earR = document.getElementById('ear-r');
-  const tongue = document.getElementById('teo-tongue');
-  const cheekL = document.getElementById('cheek-l');
-  const cheekR = document.getElementById('cheek-r');
-  const eyesOpen = document.getElementById('eyes-open');
-  const eyesClosed = document.getElementById('eyes-closed');
-  const speechEl = document.getElementById('speech');
-
-  window.addEventListener('mousemove', (e) => {
-    const svg = document.getElementById('teo-svg');
-    if (!svg || !pupils) return;
-    const rect = svg.getBoundingClientRect();
-    const cx = rect.left + rect.width / 2;
-    const cy = rect.top + rect.height / 2;
-    const dx = Math.max(-3.2, Math.min(3.2, (e.clientX - cx) / 60));
-    const dy = Math.max(-3.2, Math.min(3.2, (e.clientY - cy) / 60));
-    pupils.setAttribute('transform', `translate(${dx.toFixed(2)}, ${dy.toFixed(2)})`);
-  });
-
-  function setSleeping(sleeping) {
-    eyesOpen.style.opacity = sleeping ? '0' : '1';
-    eyesClosed.style.opacity = sleeping ? '1' : '0';
-  }
-
-  function animateTeo({ showTongue = true, blush = false, sleep = false } = {}) {
-    setSleeping(sleep);
-
-    earL.classList.remove('ear-wiggle-now');
-    earR.classList.remove('ear-wiggle-now');
-    void earL.offsetWidth;
-    earL.classList.add('ear-wiggle-now');
-    earR.classList.add('ear-wiggle-now');
-
-    if (showTongue) {
-      tongue.style.opacity = '1';
-      clearTimeout(tongue._t);
-      tongue._t = setTimeout(() => { tongue.style.opacity = '0'; }, 1500);
-    }
-
-    if (blush) {
-      cheekL.style.opacity = '0.75';
-      cheekR.style.opacity = '0.75';
-      clearTimeout(cheekL._t);
-      cheekL._t = setTimeout(() => {
-        cheekL.style.opacity = '0';
-        cheekR.style.opacity = '0';
-      }, 1800);
-    }
-  }
-
-  function say(text) {
-    speechEl.textContent = text;
-    speechEl.classList.remove('pop');
-    void speechEl.offsetWidth;
-    speechEl.classList.add('pop');
-  }
-
-  function spawnFloater(emoji, x, y) {
-    const el = document.createElement('div');
-    el.className = 'floater';
-    el.textContent = emoji;
-    el.style.left = `${x}px`;
-    el.style.top = `${y}px`;
-    el.style.setProperty('--dx', `${(Math.random() - 0.5) * 75}px`);
-    document.body.appendChild(el);
-    setTimeout(() => el.remove(), 1050);
-  }
-
-  function spawnConfetti(x, y) {
-    const colors = ['#dff35a', '#1d1a17', '#cf9a63', '#e9a3a0', '#ffffff'];
-    for (let i = 0; i < 26; i++) {
-      const el = document.createElement('div');
-      el.className = 'confetti';
-      el.style.left = `${x}px`;
-      el.style.top = `${y}px`;
-      el.style.backgroundColor = colors[i % colors.length];
-      el.style.setProperty('--tx', `${(Math.random() - 0.5) * 260}px`);
-      el.style.setProperty('--ty', `${-70 + Math.random() * 220}px`);
-      el.style.setProperty('--rot', `${(Math.random() - 0.5) * 720}deg`);
-      document.body.appendChild(el);
-      setTimeout(() => el.remove(), 1300);
-    }
-  }
-
-  const beaverLines = [
-    'Pī-pī! Mans mīļākais bebrs! 🦫',
-    'Urk-urk! Bebrs atkal runā! 🦫',
-    'Šņāc-šņāc! Saspiežam bebru vēlreiz!',
-    'Kvī-kvī! Šī ir vislabākā skaņa pasaulē!',
-    'Vau! Neatdošu bebru nevienam! 🦫'
-  ];
-
-  const petLines = [
-    'Mmmm, pakasi aiz austiņas! ❤️',
-    'Šņāc-šņāc! Tik labi!',
-    'Labākais puisis pasaulē! 🐾'
-  ];
-
-  function handleAction(action, clientX, clientY) {
-    const picRect = document.getElementById('pic').getBoundingClientRect();
-    const x = clientX || (picRect.left + picRect.width / 2);
-    const y = clientY || (picRect.top + picRect.height * 0.35);
-
-    if (action === 'pet') {
-      animateTeo({ showTongue: true, blush: true, sleep: false });
-      playSound('snort');
-      spawnFloater('❤️', x, y);
-      say(petLines[Math.floor(Math.random() * petLines.length)]);
-    } else if (action === 'beaver') {
-      animateTeo({ showTongue: true, blush: false, sleep: false });
-      playSound('beaver');
-      spawnFloater('🦫', x, y);
-      say(beaverLines[beaverSoundIndex % beaverLines.length]);
-    } else if (action === 'cheese') {
-      animateTeo({ showTongue: true, blush: true, sleep: false });
-      playSound('bark');
-      spawnFloater('🧀', x, y);
-      say('Siers!! Vēl vienu gabaliņu, lūdzu! 🧀');
-    } else if (action === 'nap') {
-      animateTeo({ showTongue: false, blush: false, sleep: true });
-      playSound('snort');
-      spawnFloater('💤', x, y);
-      say('Hrrrr... šņāc... guļu uz dīvāna...');
-    } else if (action === 'party') {
-      animateTeo({ showTongue: true, blush: true, sleep: false });
-      playSound('party');
-      spawnConfetti(x, y);
-      spawnFloater('🎂', x, y);
-      say('Daudz laimes man! Kur ir kūka? 🎉');
     }
   }
 
